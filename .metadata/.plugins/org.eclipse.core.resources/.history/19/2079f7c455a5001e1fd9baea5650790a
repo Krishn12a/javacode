@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans >
+        
+        
+        <!-- Step3: Add Support for Component Scanning -->
+        <context:component-scan base-package="com.app"></context:component-scan>
+        
+        <!-- Step4: Add support for conversion, Formatting and Validation -->
+        <mvc:annotation-driven/>
+        
+        <!-- Step5: Configure MVC View Resolver -->
+        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/view/"></property>
+        <property name="suffix" value=".jsp"></property>
+        </bean>
+        
+        
+        
+        </beans>

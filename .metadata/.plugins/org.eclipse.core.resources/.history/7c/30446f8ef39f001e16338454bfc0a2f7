@@ -1,0 +1,5 @@
+package org.register.entity;
+
+public class User {
+
+}

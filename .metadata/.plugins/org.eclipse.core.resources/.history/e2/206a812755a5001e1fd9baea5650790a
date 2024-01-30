@@ -1,0 +1,23 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd"> <!-- bean definitions here -->
+        
+        
+        <!-- Step3: Add Support for Component Scanning -->
+        <context:component-scan base-package="com.app"/>
+        
+        
+        <!-- Step4: Add support for conversion, Formatting and Validation -->
+        <mvc:annotation-driven/>
+        
+        <!-- Step5: Configure MVC View Resolver -->
+        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/view/"></property>
+        <property name="suffix" value=".jsp"></property>
+        </bean>
+        
+        
+        
+        </beans>

@@ -1,0 +1,41 @@
+package com.app.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.entity.StudentAttendance;
+import com.app.repositories.StudentAttendanceRepository;
+
+@Service
+public class StudentAttendanceService {
+    @Autowired
+    private StudentAttendanceRepository studentAttendanceRepository;
+
+    public void markAttendance(List<StudentAttendance> attendanceData) {
+        // Check if attendance already exists for the given date and course
+        for (StudentAttendance record : attendanceData) {
+            if (attendanceExists(record.getDate(), record.getCourse_name())) {
+                // Handle the case where attendance already exists (e.g., throw an exception or log a message)
+            } else {
+                // Create an entity from the record and save it to the database
+                StudentAttendance entity = new StudentAttendance();
+                entity.setStd_id(record.getStd_id());
+                entity.setStd_name(record.getStd_name());
+                entity.setDate(record.getDate());
+                entity.setAttendanceStaus(record.getAttendanceStaus());
+                entity.setCourse_name(record.getCourse_name());
+
+                studentAttendanceRepository.save(entity);
+            }
+        }
+    }
+
+    private boolean attendanceExists(String date, String course_name) {
+        // Check if attendance already exists for the given date and course
+        return studentAttendanceRepository.existsByDateAndCourseName(date, course_name);
+    }
+
+    // Additional methods if needed
+}

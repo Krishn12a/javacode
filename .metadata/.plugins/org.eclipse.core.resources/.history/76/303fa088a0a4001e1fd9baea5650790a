@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * 
+ */
+module demoIoc {
+	requires org.apache.tomcat.catalina;
+}
